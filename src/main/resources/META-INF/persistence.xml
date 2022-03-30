@@ -5,15 +5,24 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <persistence-unit name="DepartmentU">
-        <class>com.aimprosoft.hopak.Department</class>
+    <persistence-unit name="HibernateTask">
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Departments"/>
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="ISBN97859910"/>
+            <property name="hibernate.hikari.jdbcUrl" value="jdbc:mysql://localhost:3306/Departments"/>
+            <property name="hibernate.hikari.username" value="root"/>
+            <property name="hibernate.hikari.password" value="ISBN97859910"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.hikari.connectionTimeout" value="20000"/>
+            <property name="hibernate.hikari.idleTimeout" value="150000"/>
+            <property name="hibernate.hikari.maximumPoolSize" value="10"/>
+            <property name="hibernate.hikari.poolName" value="HikariPool"/>
+
+            <property name="hibernate.hikari.autoCommit" value="true"/>
+            <property name="hibernate.hikari.maxLifetime" value="90000"/>
+
         </properties>
     </persistence-unit>
 
